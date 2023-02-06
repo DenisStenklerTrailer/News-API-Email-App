@@ -25,10 +25,11 @@ for article in content["articles"][:20]:
                         "\n" + article["description"] +\
                         "\n" + article["url"] + 2*"\n"
 
-with open("test.txt", "w") as file:
-    file.write(MessageToSend)
+
+#with open("test.txt", "w") as file:
+#    file.write(MessageToSend)
 
 MessageToSend = MessageToSend.encode("utf-8")
 
-# Send_Email.send_email(MessageToSend)
+Send_Email.send_email(MessageToSend)
 
