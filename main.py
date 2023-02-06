@@ -17,18 +17,18 @@ request = requests.get(url)
 # Get dictionary with data
 content = request.json()
 
-MessageToSend = ""
+MessageToSend = "Subject: Today's news:" + "\n"
 
 for article in content["articles"][:20]:
     if article["title"] != None:
-        MessageToSend = "Subject: Today's news:" + "\n" + MessageToSend + article["title"] +\
+        MessageToSend = MessageToSend + article["title"] +\
                         "\n" + article["description"] +\
                         "\n" + article["url"] + 2*"\n"
 
 
 #with open("test.txt", "w") as file:
 #    file.write(MessageToSend)
-
+print(MessageToSend)
 MessageToSend = MessageToSend.encode("utf-8")
 
 Send_Email.send_email(MessageToSend)
